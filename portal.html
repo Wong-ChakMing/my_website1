@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pure HKUST Portal</title>
+        <link rel="stylesheet" href="css/portal.css">
+    </head>
+<body>
+    <!-- Fixed background layer with tech grid and input -->
+    <div class="fixed-background-layer">
+        <div class="tech-grid"></div>
+        <div class="input-section">
+            <input type="text" placeholder="Enter who are you?" maxlength="20">
+            <input type="button" value="Click Me!" onclick="alert('Button clicked!')">
+        </div>
+    </div>
+    
+    <!-- Main content layer -->
+    <div class="main-content-layer">
+        <h1 id="myh1">HKUST Portal</h1>
+        
+        <div class="main-content">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/vqQNh-GkGto?si=cKTIckSJtBqumcbn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            
+            <div class="services-container">
+                <a href="https://outlook.office365.com/mail/" class="service-link">
+                    <img src="image/Outlook.png" alt="Outlook" width="40" height="40">
+                    <div class="service-name">Outlook</div>
+                    <span class="tooltip">Access your HKUST email, calendar, and contacts. Stay connected with professors and classmates.</span>
+                </a>
+                
+                <a href="https://canvas.ust.hk/" class="service-link">
+                    <img src="image/Canvas.png" alt="Canvas" width="40" height="40">
+                    <div class="service-name">Canvas</div>
+                    <span class="tooltip">Learning management system for course materials, assignments, grades, and discussions.</span>
+                </a>
+                
+                <a href="https://genai.ust.hk/" class="service-link">
+                    <img src="image/GenAI.png" alt="GenAI" width="40" height="40">
+                    <div class="service-name">GenAI</div>
+                    <span class="tooltip">HKUST's AI-powered tools for academic research, writing assistance, and learning support.</span>
+                </a>
+                
+                <a href="https://itso.hkust.edu.hk/student-hotlinks/" class="service-link">
+                    <img src="image/HKUST.png" alt="ITSO" width="40" height="40">
+                    <div class="service-name">ITSO</div>
+                    <span class="tooltip">IT Services Office - tech support, software downloads, network access, and digital services.</span>
+                </a>
+
+                <a href="https://career.hkust.edu.hk/web/job.php?keywords=&EMT%5B%5D=6&EMT%5B%5D=8&EMT%5B%5D=4&EMT%5B%5D=9&EMT%5B%5D=11" class="service-link">
+                    <img src="image/Job.png" alt="Job" width="40" height="40">
+                    <div class="service-name">Job Board</div>
+                    <span class="tooltip">Career services - job postings, internships, career guidance, and recruitment events.</span>
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    <a href=""></a>
+    <script src="js/portal.js"></script>
+</body>
+</html>

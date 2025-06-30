@@ -1,0 +1,358 @@
+/* Spaceship Login Page Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: 
+        radial-gradient(ellipse at center, #000814 0%, #001d3d 30%, #003566 60%, #000814 100%),
+        linear-gradient(45deg, #000814 0%, #001d3d 25%, #003566 50%, #001d3d 75%, #000814 100%);
+    background-size: 100% 100%, 200% 200%;
+    background-attachment: fixed;
+    animation: spaceBackground 15s ease-in-out infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    cursor: url('../image/rocket.png'), auto;
+}
+
+/* Space background animation */
+@keyframes spaceBackground {
+    0%, 100% { background-position: 0% 0%, 0% 0%; }
+    25% { background-position: 50% 25%, 25% 50%; }
+    50% { background-position: 100% 50%, 50% 100%; }
+    75% { background-position: 50% 75%, 75% 25%; }
+}
+
+/* Stars in space */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 15% 25%, #ffffff 1px, transparent 1px),
+        radial-gradient(circle at 85% 75%, #00d9ff 1px, transparent 1px),
+        radial-gradient(circle at 45% 15%, #ffffff 0.5px, transparent 0.5px),
+        radial-gradient(circle at 75% 35%, #0099ff 1px, transparent 1px),
+        radial-gradient(circle at 25% 85%, #ffffff 0.5px, transparent 0.5px),
+        radial-gradient(circle at 65% 65%, #66ccff 0.5px, transparent 0.5px),
+        radial-gradient(circle at 35% 45%, #ffffff 1px, transparent 1px);
+    background-size: 250px 250px, 300px 300px, 200px 200px, 350px 350px, 180px 180px, 280px 280px, 220px 220px;
+    animation: starTwinkle 20s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+}
+
+@keyframes starTwinkle {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0.8; }
+}
+
+/* Spaceship container */
+.spaceship-container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    perspective: 1000px;
+}
+
+/* Main spaceship body */
+.spaceship {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: 
+        linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%),
+        radial-gradient(circle at 30% 30%, rgba(0, 217, 255, 0.1), transparent 70%);
+    border-radius: 50px 50px 20px 20px;
+    box-shadow: 
+        0 0 50px rgba(0, 217, 255, 0.3),
+        0 0 100px rgba(0, 153, 255, 0.2),
+        inset 0 20px 40px rgba(255, 255, 255, 0.1),
+        inset 0 -20px 40px rgba(0, 0, 0, 0.2);
+    animation: spaceshipHover 3s ease-in-out infinite alternate;
+    transform-style: preserve-3d;
+    transition: all 1s ease;
+}
+
+@keyframes spaceshipHover {
+    0% { transform: translateY(0) rotateX(2deg); }
+    100% { transform: translateY(-10px) rotateX(-2deg); }
+}
+
+/* Spaceship opening animation */
+.spaceship.opening {
+    animation: spaceshipOpen 2s ease-in-out forwards;
+}
+
+@keyframes spaceshipOpen {
+    0% { transform: translateY(0) rotateX(0deg) scale(1); }
+    50% { transform: translateY(-20px) rotateX(15deg) scale(1.1); }
+    100% { transform: translateY(-50px) rotateX(30deg) scale(1.2) rotateY(360deg); }
+}
+
+/* Spaceship cockpit */
+.spaceship::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 80px;
+    background: 
+        radial-gradient(ellipse at center, rgba(0, 217, 255, 0.3) 0%, rgba(0, 153, 255, 0.1) 70%, transparent 100%);
+    border-radius: 50%;
+    border: 2px solid rgba(0, 217, 255, 0.5);
+    box-shadow: 
+        0 0 30px rgba(0, 217, 255, 0.4),
+        inset 0 5px 15px rgba(255, 255, 255, 0.2);
+    animation: cockpitGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes cockpitGlow {
+    0% { box-shadow: 0 0 30px rgba(0, 217, 255, 0.4), inset 0 5px 15px rgba(255, 255, 255, 0.2); }
+    100% { box-shadow: 0 0 50px rgba(0, 217, 255, 0.6), inset 0 5px 15px rgba(255, 255, 255, 0.3); }
+}
+
+/* Engine thrusters */
+.spaceship::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 40px;
+    background: 
+        linear-gradient(to bottom, #ff4444 0%, #ff8800 50%, #ffff00 100%);
+    border-radius: 0 0 50% 50%;
+    box-shadow: 
+        0 10px 30px rgba(255, 68, 68, 0.5),
+        0 0 20px rgba(255, 136, 0, 0.4);
+    animation: engineFlame 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes engineFlame {
+    0% { 
+        height: 40px; 
+        box-shadow: 0 10px 30px rgba(255, 68, 68, 0.5), 0 0 20px rgba(255, 136, 0, 0.4);
+    }
+    100% { 
+        height: 60px; 
+        box-shadow: 0 15px 40px rgba(255, 68, 68, 0.7), 0 0 30px rgba(255, 136, 0, 0.6);
+    }
+}
+
+/* Login form container inside spaceship */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 300px;
+}
+
+/* Spaceship title */
+h1 {
+    color: #00d9ff;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-shadow: 
+        0 0 20px rgba(0, 217, 255, 0.8),
+        0 0 40px rgba(0, 153, 255, 0.6),
+        0 0 60px rgba(102, 204, 255, 0.4);
+    animation: titlePulse 2s ease-in-out infinite alternate;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+@keyframes titlePulse {
+    0% { 
+        text-shadow: 0 0 20px rgba(0, 217, 255, 0.8), 0 0 40px rgba(0, 153, 255, 0.6), 0 0 60px rgba(102, 204, 255, 0.4);
+        transform: scale(1);
+    }
+    100% { 
+        text-shadow: 0 0 30px rgba(0, 217, 255, 1), 0 0 50px rgba(0, 153, 255, 0.8), 0 0 70px rgba(102, 204, 255, 0.6);
+        transform: scale(1.05);
+    }
+}
+
+/* Password input styling */
+#password {
+    width: 250px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: 
+        linear-gradient(135deg, rgba(30, 41, 59, 0.9), rgba(51, 65, 85, 0.8)),
+        radial-gradient(circle at center, rgba(0, 217, 255, 0.1), transparent 70%);
+    border: 2px solid rgba(0, 217, 255, 0.3);
+    border-radius: 25px;
+    color: #e2e8f0;
+    font-size: 16px;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+#password::placeholder {
+    color: #94a3b8;
+    font-style: italic;
+}
+
+#password:focus {
+    border-color: rgba(0, 217, 255, 0.8);
+    box-shadow: 
+        0 0 30px rgba(0, 217, 255, 0.4),
+        0 8px 25px rgba(0, 0, 0, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+/* Login button styling */
+#loginButton {
+    width: 200px;
+    padding: 15px;
+    background: 
+        linear-gradient(45deg, #0099ff 0%, #00d9ff 50%, #66ccff 100%),
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2), transparent 70%);
+    border: none;
+    border-radius: 25px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: url('../image/rocket.png'), pointer;
+    box-shadow: 
+        0 10px 30px rgba(0, 153, 255, 0.4),
+        0 0 20px rgba(0, 217, 255, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+#loginButton::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: buttonRotate 2s linear infinite;
+    z-index: -1;
+}
+
+@keyframes buttonRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loginButton:hover {
+    background: 
+        linear-gradient(45deg, #0088ee 0%, #00ccee 50%, #55bbee 100%),
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.3), transparent 70%);
+    box-shadow: 
+        0 15px 40px rgba(0, 153, 255, 0.6),
+        0 0 30px rgba(0, 217, 255, 0.5),
+        inset 0 2px 5px rgba(255, 255, 255, 0.4);
+    transform: translateY(-3px) scale(1.05);
+}
+
+#loginButton:active {
+    transform: translateY(0) scale(0.98);
+    box-shadow: 
+        0 5px 15px rgba(0, 153, 255, 0.4),
+        0 0 15px rgba(0, 217, 255, 0.3),
+        inset 0 2px 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Success animation */
+.launch-sequence {
+    animation: launchPrep 1s ease-in-out, launchTakeoff 2s ease-in 1s forwards;
+}
+
+@keyframes launchPrep {
+    0%, 100% { transform: translateY(0) scale(1); }
+    25% { transform: translateY(-5px) scale(1.02); }
+    50% { transform: translateY(-10px) scale(1.05); }
+    75% { transform: translateY(-5px) scale(1.02); }
+}
+
+@keyframes launchTakeoff {
+    0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 1; }
+    50% { transform: translateY(-100px) scale(1.2) rotate(10deg); opacity: 0.8; }
+    100% { transform: translateY(-500px) scale(0.5) rotate(360deg); opacity: 0; }
+}
+
+/* Side thrusters */
+.side-thruster-left, .side-thruster-right {
+    position: absolute;
+    top: 60%;
+    width: 30px;
+    height: 20px;
+    background: linear-gradient(to right, #ff4444, #ff8800);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+    animation: sideThruster 0.3s ease-in-out infinite alternate;
+}
+
+.side-thruster-left {
+    left: -15px;
+    transform: rotate(-10deg);
+}
+
+.side-thruster-right {
+    right: -15px;
+    transform: rotate(10deg);
+}
+
+@keyframes sideThruster {
+    0% { 
+        width: 30px;
+        box-shadow: 0 0 15px rgba(255, 68, 68, 0.5);
+    }
+    100% { 
+        width: 45px;
+        box-shadow: 0 0 25px rgba(255, 68, 68, 0.7);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .spaceship-container {
+        width: 300px;
+        height: 400px;
+    }
+    
+    .login-container {
+        width: 250px;
+    }
+    
+    h1 {
+        font-size: 2em;
+    }
+    
+    #password, #loginButton {
+        width: 200px;
+    }
+}
