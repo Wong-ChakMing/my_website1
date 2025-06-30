@@ -456,8 +456,12 @@ body::after {
     opacity: 1;
 }
 
-/* Input section styling - updated for fixed positioning */
+/* Input section styling - standalone fixed positioning */
 .input-section {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
     padding: 20px;
     background: rgba(30, 41, 59, 0.95);
@@ -470,6 +474,8 @@ body::after {
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
     max-width: 400px;
     animation: inputGlow 3s ease-in-out infinite alternate;
+    pointer-events: auto;
+    z-index: 10000;
 }
 
 @keyframes inputGlow {
@@ -547,19 +553,10 @@ body::after {
     pointer-events: none;
 }
 
-.fixed-background-layer .input-section {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    pointer-events: auto;
-    z-index: 1000;
-}
-
 /* Main content layer - scrollable */
 .main-content-layer {
     position: relative;
-    z-index: 1;
+    z-index: 0;
     min-height: 100vh;
     padding-bottom: 120px; /* Space for fixed input section */
 }
@@ -641,8 +638,8 @@ body::after {
         border-color: #6c757d transparent transparent transparent;
     }
     
-    /* Fixed layer responsive adjustments */
-    .fixed-background-layer .input-section {
+    /* Input section responsive adjustments */
+    .input-section {
         bottom: 20px;
         max-width: 300px;
         padding: 15px;
