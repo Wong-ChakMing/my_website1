@@ -5,7 +5,7 @@ document.getElementById("loginButton").onclick = function () {
     const spaceship = document.getElementById("spaceship");
     const loginButton = document.getElementById("loginButton");
     
-    if (password === "password") {
+    if (password === "Password" || password === "password") {
         // Success - Launch sequence
         loginButton.textContent = "LAUNCHING...";
         loginButton.disabled = true;
