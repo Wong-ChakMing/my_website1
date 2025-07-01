@@ -20,17 +20,35 @@ body {
     min-height: 100vh;
     position: relative;
     overflow-x: hidden;
-    cursor: url('../image/rocket.png'), auto;
+    cursor: none; /* Hide default cursor */
 }
 
-/* Custom rocket cursor for interactive elements */
-a, button, input[type="button"], .service-link {
-    cursor: url('../image/rocket.png'), pointer;
+/* Custom rocket cursor element */
+.custom-cursor {
+    position: fixed;
+    width: 32px;
+    height: 32px;
+    background-image: url('../image/rocket.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 99999;
+    transform: rotate(var(--cursor-rotation, 45deg));
+    transition: transform 0.1s ease;
+    top: 0;
+    left: 0;
 }
 
-/* Text input cursor - keep default text cursor for better usability */
+/* Hide custom cursor for text inputs - show default text cursor */
 input[type="text"], input[type="email"], input[type="password"], textarea {
     cursor: text;
+}
+
+input[type="text"]:hover ~ .custom-cursor,
+input[type="email"]:hover ~ .custom-cursor,
+input[type="password"]:hover ~ .custom-cursor,
+textarea:hover ~ .custom-cursor {
+    display: none;
 }
 
 /* Galaxy background animation */
