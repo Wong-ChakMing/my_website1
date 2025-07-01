@@ -55,9 +55,9 @@ function checkingMouseDegree() {
             // Normalize to 0-360 degrees
             degree = (degree + 180) % 360;
             
-            // Adjust for the original rocket pointing at 45°
-            // Subtract 45° to align the rocket with movement direction
-            let rotationDegree = degree - 45;
+            // Adjust for the original rocket pointing at 135°
+            // Subtract 135° to align the rocket with movement direction
+            let rotationDegree = degree - 135;
             
             // Round to nearest integer
             degree = Math.round(degree);
