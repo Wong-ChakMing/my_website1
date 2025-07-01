@@ -65,10 +65,7 @@ function checkingMouseDegree() {
             
             // Update cursor rotation using CSS custom property
             document.documentElement.style.setProperty('--cursor-rotation', `${rotationDegree}deg`);
-            
-            console.log(`Mouse at (${currentX}, ${currentY}) - Angle: ${degree}° - Cursor Rotation: ${rotationDegree}°`);
         }
-        
         // Update last position
         lastX = currentX;
         lastY = currentY;
