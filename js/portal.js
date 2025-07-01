@@ -39,8 +39,8 @@ function checkingMouseDegree() {
         const currentY = event.clientY;
         
         // Update cursor position (offset by half the cursor size for centering)
-        customCursor.style.left = (currentX - 16) + 'px';
-        customCursor.style.top = (currentY - 16) + 'px';
+        customCursor.style.left = (currentX - 32) + 'px';
+        customCursor.style.top = (currentY - 32) + 'px';
         
         // Calculate the change in position (delta)
         const deltaX = currentX - lastX;
