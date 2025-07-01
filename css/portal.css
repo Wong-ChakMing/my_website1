@@ -26,9 +26,9 @@ body {
 /* Custom rocket cursor element */
 .custom-cursor {
     position: fixed;
-    width: 64px;  /* 200% of original 32px */
-    height: 64px; /* 200% of original 32px */
-    background-image: url('../image/rocket.png');
+    width: 64px;
+    height: 64px;
+    background-image: url('../image/rocket2.gif');
     background-size: contain;
     background-repeat: no-repeat;
     pointer-events: none;
