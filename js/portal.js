@@ -91,6 +91,13 @@ const searchFunction = () => {
     searchInput.value='';
 }
 
+var inputtext = document.querySelector('.search-input');
+inputtext.addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+        searchFunction();
+    }
+});
+
 inorderHeader();
 checkingMouseDegree();
 console.log(recursion_test(5)); // 120
