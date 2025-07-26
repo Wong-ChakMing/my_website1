@@ -88,6 +88,7 @@ const searchFunction = () => {
     const query = searchInput.value;
     const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
     window.open(googleSearchUrl, '_blank');
+    searchInput.value='';
 }
 
 inorderHeader();
