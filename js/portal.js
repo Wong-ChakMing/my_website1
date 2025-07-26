@@ -83,6 +83,13 @@ function checkingMouseDegree() {
     });
 }
 
+const searchFunction = () => {
+    const searchInput = document.querySelector('.search-input');
+    const query = searchInput.value;
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    window.open(googleSearchUrl, '_blank');
+}
+
 inorderHeader();
 checkingMouseDegree();
 console.log(recursion_test(5)); // 120
